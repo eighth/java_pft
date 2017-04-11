@@ -11,7 +11,7 @@ public class MyFirstProgram {
 
     double a = 4;
     double b = 6;
-    System.out.println("Площадь прямоугольника со сторонами " + a +  " и " + b + " = " + area(a, b));
+    System.out.println("Площадь прямоугольника со сторонами " + a + " и " + b + " = " + area(a, b));
 
   }
 
@@ -19,12 +19,12 @@ public class MyFirstProgram {
     System.out.println("Hello, " + somebody + "!!!");
   }
 
-  public static double area(double len){
+  public static double area(double len) {
     double lenA = len * len;
     return lenA;
   }
 
-  public static double area(double a, double b){
+  public static double area(double a, double b) {
     return a * b;
   }
 }
