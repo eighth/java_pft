@@ -16,7 +16,7 @@ public class MyFirstProgram {
     //Создаем объект типа Point
     Point p1 = new Point(10, 2);
     Point p2 = new Point(4, 12);
-    System.out.println("Расстояния между двумя точками = " + Point.distance(p1, p2));
+    System.out.println("Расстояния между двумя точками = " + p1.distance(p2));
 
   }
 
