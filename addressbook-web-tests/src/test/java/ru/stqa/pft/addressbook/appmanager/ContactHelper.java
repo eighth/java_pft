@@ -33,23 +33,6 @@ public class ContactHelper extends HelperBase {
     type(By.name("email2"), contactData.geteMail2());
     type(By.name("email3"), contactData.geteMail3());
     type(By.name("homepage"), contactData.getHomePage());
-    if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).isSelected()) {
-      click(By.xpath("//div[@id='content']/form/select[1]//option[3]"));
-    }
-    if (!wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[2]")).isSelected()) {
-      click(By.xpath("//div[@id='content']/form/select[2]//option[2]"));
-    }
-    type(By.name("byear"), contactData.getbYear());
-    if (!wd.findElement(By.xpath("//div[@id='content']/form/select[3]//option[4]")).isSelected()) {
-      click(By.xpath("//div[@id='content']/form/select[3]//option[4]"));
-    }
-    if (!wd.findElement(By.xpath("//div[@id='content']/form/select[4]//option[3]")).isSelected()) {
-      click(By.xpath("//div[@id='content']/form/select[4]//option[3]"));
-    }
-    type(By.name("ayear"), contactData.getaYear());
-    if (!wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[2]")).isSelected()) {
-      click(By.xpath("//div[@id='content']/form/select[5]//option[2]"));
-    }
     type(By.name("address2"), contactData.getAddress2());
     type(By.name("phone2"), contactData.getPhone2());
     type(By.name("notes"), contactData.getNotes());
@@ -61,5 +44,25 @@ public class ContactHelper extends HelperBase {
 
   public void returnToHomePage() {
     click(By.linkText("home page"));
+  }
+
+  public void initModificationContact() {
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  }
+
+  public void submitModificationContact() {
+    click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+  }
+
+  public void checkContact() {
+    click(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
+  }
+
+  public void submitDeletionContact() {
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+  }
+
+  public void applyAlert() {
+    wd.switchTo().alert().accept();
   }
 }
