@@ -14,6 +14,12 @@ public class HelperBase {
     this.wd = wd;
   }
 
+//  protected void type(By locator, String text) {
+//    wd.findElement(locator).click();
+//    wd.findElement(locator).clear();
+//    wd.findElement(locator).sendKeys(text);
+//  }
+
   protected void click(By locator) {
     wd.findElement(locator).click();
   }
@@ -33,4 +39,7 @@ public class HelperBase {
     }
   }
 
+//  protected void click(By xpLocator) {
+//    wd.findElement(xpLocator).click();
+//  }
 }
