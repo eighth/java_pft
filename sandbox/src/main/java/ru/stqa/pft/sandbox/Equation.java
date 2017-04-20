@@ -3,6 +3,7 @@ package ru.stqa.pft.sandbox;
 /**
  * Created by Nechepurenko on 20.04.2017.
  */
+
 public class Equation {
   private double a;
   private double b;
@@ -24,7 +25,7 @@ public class Equation {
       } else {
         n = 0;
       }
-      
+
     } else if (b != 0) {
       n = 1;
     } else if (c != 0) {
