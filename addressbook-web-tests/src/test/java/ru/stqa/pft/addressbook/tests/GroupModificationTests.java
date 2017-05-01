@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.util.List;
+
 /**
  * Created by Nechepurenko on 16.04.2017.
  */
@@ -13,19 +15,18 @@ public class GroupModificationTests extends TestBase {
 
   public void testGroupModifiication() {
     app.getNavigationHelper().gotoGroupPage();
-    //Количество групп до добавления
-    int before = app.getGroupHelper().getGroupCount();
     if (! app.getGroupHelper().isThereAGroup()) {
       app.getGroupHelper().createGroup(new GroupData("test01", null, null));
     }
-    app.getGroupHelper().selectGroup(before - 1);
+    //Список групп вместо количества
+    List<GroupData> before = app.getGroupHelper().getGroupList();
+    app.getGroupHelper().selectGroup(before.size() - 1);
     app.getGroupHelper().initGroupModification();
     app.getGroupHelper().fillGroupForm(new GroupData("test01", "test02", "test03"));
     app.getGroupHelper().submitGroupModification();
     app.getGroupHelper().returnToGroupPage();
-    int after = app.getGroupHelper().getGroupCount();
-    //количество групп после, должно совпадать с количеством групп до
-    Assert.assertEquals(after, before);
-
+    //Список групп вместо количества
+    List<GroupData> after = app.getGroupHelper().getGroupList();
+    Assert.assertEquals(after.size(), before.size());
   }
 }
