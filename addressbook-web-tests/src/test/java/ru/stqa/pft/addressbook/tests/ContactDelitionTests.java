@@ -13,7 +13,6 @@ public class ContactDelitionTests extends TestBase {
 
   public void testContactDelition() {
     app.getNavigationHelper().gotoHomePage();
-    int before = app.getContactHelper().getContactCount();
     if (!app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData(
                       "test01",
@@ -37,7 +36,8 @@ public class ContactDelitionTests extends TestBase {
                       "test01"),
               true);
     }
-    app.getContactHelper().checkContact();
+    int before = app.getContactHelper().getContactCount();
+    app.getContactHelper().checkContact(before - 1);
     app.getContactHelper().submitDeletionContact();
     app.getContactHelper().applyAlert();
     app.getContactHelper().returnToHomePage();

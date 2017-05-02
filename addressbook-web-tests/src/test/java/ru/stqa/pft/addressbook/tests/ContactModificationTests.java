@@ -13,7 +13,6 @@ public class ContactModificationTests extends TestBase {
 
   public void testContactModification() {
     app.getNavigationHelper().gotoHomePage();
-    int before = app.getContactHelper().getContactCount();
     if (!app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData(
                       "test01",
@@ -37,9 +36,10 @@ public class ContactModificationTests extends TestBase {
                       "test01"),
               true);
     }
-    app.getContactHelper().initModificationContact();
+    int before = app.getContactHelper().getContactCount();
+    app.getContactHelper().initModificationContact(before - 1);
     app.getContactHelper().fillContactForm(new ContactData(
-                    "test01",
+                    "test011",
                     "test02",
                     "test03",
                     "test04",

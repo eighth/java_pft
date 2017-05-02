@@ -3,9 +3,13 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Nechepurenko on 16.04.2017.
@@ -55,16 +59,18 @@ public class ContactHelper extends HelperBase {
     click(By.cssSelector("#nav > ul > li:nth-child(1) > a"));
   }
 
-  public void initModificationContact() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  public void initModificationContact(int index) {
+    wd.findElements(By.cssSelector("td.center > a")).get(index).click();
   }
 
   public void submitModificationContact() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
 
-  public void checkContact() {
-    click(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
+  public void checkContact(int index) {
+//    wd.findElements(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input")).get(index).click();
+
+    wd.findElements(By.cssSelector("td.center > input")).get(index).click();
   }
 
   public void submitDeletionContact() {
@@ -88,5 +94,34 @@ public class ContactHelper extends HelperBase {
 
   public int getContactCount() {
     return wd.findElements(By.name("selected[]")).size();
+  }
+
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<>();
+    List<WebElement> elements = wd.findElements(By.cssSelector("tr.odd"));
+    for (WebElement element : elements) {
+      String name = element.getText();
+      ContactData contact = new ContactData(name,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null);
+      contacts.add(contact);
+    }
+    return contacts;
   }
 }
