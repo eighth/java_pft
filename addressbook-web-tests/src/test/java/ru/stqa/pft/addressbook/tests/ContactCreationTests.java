@@ -17,21 +17,7 @@ public class ContactCreationTests extends TestBase {
                     "test02",
                     "test03",
                     "test04",
-                    "test05",
-                    "test06",
-                    "test07",
-                    "test08",
-                    "test09",
-                    "test10",
-                    "test11",
-                    "test12@e-mail.ru",
-                    "test13@e-mail.ru",
-                    "test14@e-mail.ru",
-                    "test15.ru",
-                    "test16",
-                    "test17",
-                    "test18",
-                    "test01"),
+                    "test05"),
             true);
     List<ContactData> after = app.getContactHelper().getContactList();
     Assert.assertEquals(after.size(), before.size() + 1);
