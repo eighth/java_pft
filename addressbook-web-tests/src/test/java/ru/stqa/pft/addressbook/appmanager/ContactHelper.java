@@ -60,7 +60,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initModificationContact(int index) {
-    wd.findElements(By.cssSelector("td.center > a")).get(index).click();
+    wd.findElements(By.name("Edit")).get(index).click();
   }
 
   public void submitModificationContact() {
@@ -98,7 +98,7 @@ public class ContactHelper extends HelperBase {
 
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<>();
-    List<WebElement> elements = wd.findElements(By.cssSelector("tr.odd"));
+    List<WebElement> elements = wd.findElements(By.cssSelector("tr"));
     for (WebElement element : elements) {
       String name = element.getText();
       ContactData contact = new ContactData(name,
