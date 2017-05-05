@@ -60,17 +60,17 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initModificationContact(int index) {
-    wd.findElements(By.name("Edit")).get(index).click();
+    wd.findElements(By.cssSelector("td:nth-child(8) > a")).get(index).click();
   }
+
 
   public void submitModificationContact() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
 
   public void checkContact(int index) {
-//    wd.findElements(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input")).get(index).click();
+    wd.findElements(By.name("selected[]")).get(index).click();
 
-    wd.findElements(By.cssSelector("td.center > input")).get(index).click();
   }
 
   public void submitDeletionContact() {
@@ -98,7 +98,7 @@ public class ContactHelper extends HelperBase {
 
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<>();
-    List<WebElement> elements = wd.findElements(By.cssSelector("tr"));
+    List<WebElement> elements = wd.findElements(By.cssSelector("td:nth-child(8) > a"));
     for (WebElement element : elements) {
       String name = element.getText();
       ContactData contact = new ContactData(name,
