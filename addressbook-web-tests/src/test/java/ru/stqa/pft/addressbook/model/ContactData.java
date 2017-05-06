@@ -16,6 +16,14 @@ public class ContactData {
   private final String eMail2;
   private final String eMail3;
   private final String homePage;
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "firstName='" + firstName + '\'' +
+            '}';
+  }
+
   private final String address2;
   private final String phone2;
   private final String notes;
