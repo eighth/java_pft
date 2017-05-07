@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -40,30 +41,34 @@ public class ContactModificationTests extends TestBase {
     }
     List<ContactData> before = app.getContactHelper().getContactList();
     app.getContactHelper().initModificationContact(before.size() - 1);
-    app.getContactHelper().fillContactForm(new ContactData(
-                    "test011",
-                    "test02",
-                    "test03",
-                    "test04",
-                    "test05",
-                    "test06",
-                    "test07",
-                    "test08",
-                    "test09",
-                    "test10",
-                    "test11",
-                    "test12@e-mail.ru",
-                    "test13@e-mail.ru",
-                    "test14@e-mail.ru",
-                    "test15.ru",
-                    "test16",
-                    "test17",
-                    "test18",
-                    null),
-            false);
+    ContactData contact = new ContactData(
+            "test011",
+            "test02",
+            "test03",
+            "test04",
+            "test05",
+            "test06",
+            "test07",
+            "test08",
+            "test09",
+            "test10",
+            "test11",
+            "test12@e-mail.ru",
+            "test13@e-mail.ru",
+            "test14@e-mail.ru",
+            "test15.ru",
+            "test16",
+            "test17",
+            "test18",
+            null);
+    app.getContactHelper().fillContactForm(contact,false);
     app.getContactHelper().submitModificationContact();
     app.getContactHelper().returnToHomePage();
     List<ContactData> after = app.getContactHelper().getContactList();
     Assert.assertEquals(after.size(), before.size());
+
+    before.remove(before.size() - 1);
+    before.add(contact);
+    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after)) ;
   }
 }
