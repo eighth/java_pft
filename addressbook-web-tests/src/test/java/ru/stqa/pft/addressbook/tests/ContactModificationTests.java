@@ -42,7 +42,7 @@ public class ContactModificationTests extends TestBase {
     List<ContactData> before = app.getContactHelper().getContactList();
     app.getContactHelper().initModificationContact(before.size() - 1);
     ContactData contact = new ContactData(
-            "test011",
+            "test03",
             "test02",
             "test03",
             "test04",

@@ -98,9 +98,10 @@ public class ContactHelper extends HelperBase {
 
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<>();
-    List<WebElement> elements = wd.findElements(By.cssSelector("td:nth-child(2)"));
+    List<WebElement> elements = wd.findElements(By.cssSelector("td:nth-child(2)"));//td:nth-child(2)
     for (WebElement element : elements) {
       String name = element.getText();
+      String id = element.findElement(By.cssSelector("td:nth-child(8) > a")).getAttribute("Edit");
       ContactData contact = new ContactData(name,
               null,
               null,
