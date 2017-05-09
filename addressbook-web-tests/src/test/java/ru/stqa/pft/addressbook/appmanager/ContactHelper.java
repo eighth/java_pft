@@ -123,7 +123,6 @@ public class ContactHelper extends HelperBase {
               null,
               null);
       contacts.add(contact);
-      System.out.println(contact);
     }
     return contacts;
   }

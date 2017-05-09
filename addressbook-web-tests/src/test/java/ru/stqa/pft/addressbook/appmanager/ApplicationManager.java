@@ -34,7 +34,7 @@ public class ApplicationManager {
     } else if (Objects.equals(browser, BrowserType.EDGE)) {
       wd = new EdgeDriver();
     }
-    wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);//Уменьшить время, если проверяем отсутствие элемента.
+    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);//Уменьшить время, если проверяем отсутствие элемента.
     wd.get("http://localhost/addressbook");
     groupHelper = new GroupHelper(wd);
     contactHelper = new ContactHelper(wd);
