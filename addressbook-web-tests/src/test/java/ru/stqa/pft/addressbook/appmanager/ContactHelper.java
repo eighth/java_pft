@@ -60,7 +60,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initModificationContact(int index) {
-    wd.findElements(By.cssSelector("td:nth-child(8) > a")).get(index).click();
+    wd.findElements(By.cssSelector("td:nth-child(8) > a")).get(index).click();//By.cssSelector("td:nth-child(8) > a")
   }
 
 
@@ -98,13 +98,14 @@ public class ContactHelper extends HelperBase {
 
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<>();
-    List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));//td:nth-child(2)
+    List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));
     for (WebElement element : elements) {
-      String name = element.getText();
-      String id = element.findElement(By.tagName("input")).getAttribute("value");
-      ContactData contact = new ContactData(id ,name,
+      String firstName = element.findElement(By.cssSelector("td:nth-child(2)")).getText();
+      String lastName = element.findElement(By.cssSelector("td:nth-child(3)")).getText();
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+      ContactData contact = new ContactData(id ,firstName,
               null,
-              null,
+              lastName,
               null,
               null,
               null,
@@ -122,6 +123,7 @@ public class ContactHelper extends HelperBase {
               null,
               null);
       contacts.add(contact);
+      System.out.println(contact);
     }
     return contacts;
   }
