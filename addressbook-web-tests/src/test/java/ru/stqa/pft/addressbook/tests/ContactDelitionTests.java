@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class ContactDelitionTests extends TestBase {
 
-  @Test
+  @Test(enabled = false)
 
   public void testContactDelition() {
     app.getNavigationHelper().gotoHomePage();
