@@ -16,26 +16,26 @@ public class ContactDelitionTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().homePage();
     if (app.contact().list().size() == 0) {
-      app.contact().create(new ContactData(
-                      "test01",
-                      "test02",
-                      "test03",
-                      "test04",
-                      "test05",
-                      "test06",
-                      "test07",
-                      "test08",
-                      "test09",
-                      "test10",
-                      "test11",
-                      "test12@e-mail.ru",
-                      "test13@e-mail.ru",
-                      "test14@e-mail.ru",
-                      "test15.ru",
-                      "test16",
-                      "test17",
-                      "test18",
-                      "test01"),
+      app.contact().create(new ContactData()
+              .withFirstName("test01")
+              .withMiddleName("test02")
+              .withLastName("test03")
+              .withNickname("test04")
+              .withTitle("test05")
+              .withCompany("test06")
+              .withAddress("test07")
+              .withHome("test08")
+              .withMobile("test09")
+              .withWork("test10")
+              .withFax("test11")
+              .witheMail("test12@e-mail.ru")
+              .witheMail2("test13@e-mail.ru")
+              .witheMail3("test14@e-mail.ru")
+              .withHomePage("test15.ru")
+              .withGroup("test01")
+              .withAddress("test16")
+              .withHome("test17")
+              .withNotes("test18"),
               true);
     }
   }

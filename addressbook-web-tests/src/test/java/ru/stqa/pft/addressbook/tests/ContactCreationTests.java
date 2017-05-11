@@ -13,26 +13,26 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation() {
     app.goTo().homePage();
     List<ContactData> before = app.contact().list();
-    ContactData contact = new ContactData(
-            "test03",
-            "test02",
-            "test03",
-            "test04",
-            "test05",
-            "test06",
-            "test07",
-            "test08",
-            "test09",
-            "test10",
-            "test11",
-            "test12@e-mail.ru",
-            "test13@e-mail.ru",
-            "test14@e-mail.ru",
-            "test15.ru",
-            "test16",
-            "test17",
-            "test18",
-            "test02");
+    ContactData contact = new ContactData()
+            .withFirstName("test03")
+            .withMiddleName("test02")
+            .withLastName("test03")
+            .withNickname("test04")
+            .withTitle("test05")
+            .withCompany("test06")
+            .withAddress("test07")
+            .withHome("test08")
+            .withMobile("test09")
+            .withWork("test10")
+            .withFax("test11")
+            .witheMail("test12@e-mail.ru")
+            .witheMail2("test13@e-mail.ru")
+            .witheMail3("test14@e-mail.ru")
+            .withHomePage("test15.ru")
+            .withGroup("test02")
+            .withAddress("test16")
+            .withHome("test17")
+            .withNotes("test18");
     app.contact().create(contact,true);
     List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), before.size() + 1);
