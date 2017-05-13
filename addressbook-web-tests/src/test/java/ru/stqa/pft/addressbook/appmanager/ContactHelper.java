@@ -122,4 +122,36 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
+
+  public ContactData infoFromEditForm(ContactData contact) {
+    initContactModificationById(contact.getId());
+    String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastName = wd.findElement(By.name("lastname")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    String work = wd.findElement(By.name("work")).getAttribute("value");
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId())
+            .withFirstName(firstName)
+            .withLastName(lastName)
+            .withHome(home)
+            .withMobile(mobile)
+            .withWork(work);
+  }
+
+  private void initContactModificationById(int id) {
+    //Находим чекбокс
+    WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
+    //Выполняем поиск относительно этого чекбокса
+    WebElement row = checkbox.findElement(By.xpath("./../.."));
+    //Попадаем в ту ячейку где находится карандашик(список ячеек, все элементы тэгнейм тиди)
+    List<WebElement> cells = row.findElements(By.tagName("id"));
+    //Среди этих находим нужный и кликаем(седьмой столбец, внутри ячейки находим ссылку с тэгом а, кликаем)
+    cells.get(7).findElement(By.tagName("a")).click();
+
+//    wd.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id))).click();
+//    wd.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
+//    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+  }
 }
