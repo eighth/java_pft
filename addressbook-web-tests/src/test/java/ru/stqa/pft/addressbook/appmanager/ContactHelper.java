@@ -123,6 +123,23 @@ public class ContactHelper extends HelperBase {
     return contacts;
   }
 
+  public Set<ContactData> alls() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
+    List<WebElement> rows = wd.findElements(By.name("entry"));
+    for (WebElement row : rows){
+      List<WebElement> cells = row.findElements(By.tagName("td"));
+      int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
+      String firstName = cells.get(1).getText();
+      String lastName = cells.get(2).getText();
+      String[] phones = cells.get(5).getText().split("\n");
+      contacts.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName)
+              .withHome(phones[0])
+              .withMobile(phones[1])
+              .withWork(phones[2]));
+    }
+    return contacts;
+  }
+
 
   public ContactData infoFromEditForm(ContactData contact) {
     initContactModificationById(contact.getId());
@@ -141,16 +158,16 @@ public class ContactHelper extends HelperBase {
   }
 
   private void initContactModificationById(int id) {
-    //Находим чекбокс
-    WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
-    //Выполняем поиск относительно этого чекбокса
-    WebElement row = checkbox.findElement(By.xpath("./../.."));
-    //Попадаем в ту ячейку где находится карандашик(список ячеек, все элементы тэгнейм тиди)
-    List<WebElement> cells = row.findElements(By.tagName("id"));
-    //Среди этих находим нужный и кликаем(седьмой столбец, внутри ячейки находим ссылку с тэгом а, кликаем)
-    cells.get(7).findElement(By.tagName("a")).click();
+//    //Находим чекбокс
+//    WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
+//    //Выполняем поиск относительно этого чекбокса
+//    WebElement row = checkbox.findElement(By.xpath("./../.."));
+//    //Попадаем в ту ячейку где находится карандашик(список ячеек, все элементы тэгнейм тиди)
+//    List<WebElement> cells = row.findElements(By.tagName("id"));
+//    //Среди этих находим нужный и кликаем(седьмой столбец, внутри ячейки находим ссылку с тэгом а, кликаем)
+//    cells.get(7).findElement(By.tagName("a")).click();
 
-//    wd.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id))).click();
+    wd.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id))).click();
 //    wd.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
 //    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
