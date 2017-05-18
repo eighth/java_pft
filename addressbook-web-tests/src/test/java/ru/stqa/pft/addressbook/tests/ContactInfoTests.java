@@ -17,7 +17,7 @@ public class ContactInfoTests extends TestBase {
   @Test
   public void testContactInfo() {
     app.goTo().homePage();
-    ContactData contact = app.contact().all().iterator().next();
+    ContactData contact = app.contact().alls().iterator().next();
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
     app.contact().returnToHomePage();
     app.contact().infoContactById(contact.getId());
