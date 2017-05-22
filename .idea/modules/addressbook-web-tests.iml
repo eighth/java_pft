@@ -15,6 +15,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.testng:testng:6.11" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.google.code.gson:gson:2.8.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.beust:jcommander:1.64" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.beust:jcommander:1.64" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.beust:jcommander:1.64" level="project" />
@@ -44,7 +47,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: net.java.dev.jna:jna-platform:4.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: io.netty:netty:3.5.7.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: cglib:cglib-nodep:2.1_3" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.google.code.gson:gson:2.3.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.seleniumhq.selenium:selenium-api:2.53.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.google.guava:guava:19.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: xalan:xalan:2.7.2" level="project" />
@@ -84,7 +86,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: net.java.dev.jna:jna-platform:4.1.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty:3.5.7.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: cglib:cglib-nodep:2.1_3" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.code.gson:gson:2.3.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.seleniumhq.selenium:selenium-api:2.53.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.guava:guava:19.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: xalan:xalan:2.7.2" level="project" />
@@ -124,7 +125,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: net.java.dev.jna:jna-platform:4.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty:3.5.7.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: cglib:cglib-nodep:2.1_3" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.gson:gson:2.3.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.seleniumhq.selenium:selenium-api:2.53.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.guava:guava:19.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: xalan:xalan:2.7.2" level="project" />
