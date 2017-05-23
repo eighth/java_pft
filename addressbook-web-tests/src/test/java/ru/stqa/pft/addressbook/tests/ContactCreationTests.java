@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,41 +16,25 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactCreationTests extends TestBase {
 
     @DataProvider
-    public Iterator<Object[]> validContacts() {
+    public Iterator<Object[]> validContacts() throws IOException {
         List<Object[]> list = new ArrayList<Object[]>();
-        list.add(new Object[]{new ContactData()
-                .withFirstName("First1")
-                .withMiddleName("Middle1")
-                .withLastName("Last1")
-                .withNickname("Nick1")
-                .withTitle("Title1")
-                .withCompany("Company1")
-                .withAddress("Address1")
-                .withHome("Home1")
-                .withMobile("Mobile1")
-                .withWork("Work1")});
-        list.add(new Object[]{new ContactData()
-                .withFirstName("First2")
-                .withMiddleName("Middle2")
-                .withLastName("Last2")
-                .withNickname("Nick2")
-                .withTitle("Title2")
-                .withCompany("Company2")
-                .withAddress("Address2")
-                .withHome("Home2")
-                .withMobile("Mobile2")
-                .withWork("Work2")});
-        list.add(new Object[]{new ContactData()
-                .withFirstName("First3")
-                .withMiddleName("Middle3")
-                .withLastName("Last3")
-                .withNickname("Nick3")
-                .withTitle("Title3")
-                .withCompany("Company3")
-                .withAddress("Address3")
-                .withHome("Home3")
-                .withMobile("Mobile3")
-                .withWork("Work3")});
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.csv")));
+        String line = reader.readLine();
+        while (line != null) {
+            String[] split = line.split(";");
+            list.add(new Object[] {new ContactData()
+                .withFirstName(split[0])
+                .withMiddleName(split[1])
+                .withLastName(split[2])
+                .withNickname(split[3])
+                .withTitle(split[4])
+                .withCompany(split[5])
+                .withAddress(split[6])
+                .withHome(split[7])
+                .withMobile(split[8])
+                .withWork(split[9])});
+            line = reader.readLine();
+        }
         return list.iterator();
     }
 
