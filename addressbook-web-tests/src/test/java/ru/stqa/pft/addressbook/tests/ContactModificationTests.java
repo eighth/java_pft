@@ -39,7 +39,7 @@ public class ContactModificationTests extends TestBase {
               .witheMail2("test13@e-mail.ru")
               .witheMail3("test14@e-mail.ru")
               .withHomePage("test15.ru")
-              .withGroup("test01")
+//              .withGroup("test01")
               .withAddress("test16")
               .withHome("test17")
               .withNotes("test18"),

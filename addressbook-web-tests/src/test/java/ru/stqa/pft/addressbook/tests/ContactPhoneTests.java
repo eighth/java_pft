@@ -29,7 +29,7 @@ public class ContactPhoneTests extends TestBase {
                       .witheMail("test12@e-mail.ru")
                       .witheMail2("test13@e-mail.ru")
                       .witheMail3("test14@e-mail.ru")
-                      .withGroup("test01")
+//                      .withGroup("test01")
               ,true);
     }
   }
