@@ -30,7 +30,7 @@ public class ApplicationManager {
 
   public void init() throws IOException {
     String target = System.getProperty("target", "local");
-    properties.load(new FileReader(new File(String.format("src/ru.stqa.pft.mantis.tests/resources/%s.properties", target))));
+    properties.load(new FileReader(new File(String.format("src/tests/resources/%s.properties", target))));
 
 
     if (Objects.equals(browser, BrowserType.FIREFOX)) {
@@ -49,4 +49,11 @@ public class ApplicationManager {
     wd.quit();
   }
 
+  public HttpSession newSession() {
+    return new HttpSession(this);
+  }
+
+  public String getProperty(String key) {
+    return properties.getProperty(key);
+  }
 }
