@@ -13,13 +13,13 @@ public class GeoIpServiceTests {
 
   @Test
   public void testMyIp() {
-    GeoIP geoIP = new GeoIPService().getGeoIPServiceSoap12().getGeoIP("194.28.29.152");
+    GeoIP geoIP = new GeoIPService().getGeoIPServiceSoap12().getGeoIP("89.178.218.183");
     assertEquals(geoIP.getCountryCode(), "RUS");
   }
 
   @Test
   public void testInvalidIp() {
-    GeoIP geoIP = new GeoIPService().getGeoIPServiceSoap12().getGeoIP("194.28.29.xxx");
+    GeoIP geoIP = new GeoIPService().getGeoIPServiceSoap12().getGeoIP("89.178.218.xxx");
     assertEquals(geoIP.getCountryCode(), "RUS");
   }
 }
