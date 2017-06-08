@@ -31,7 +31,7 @@ public class RestTests {
   }
 
   private Executor getExecutor() {
-    return Executor.newInstance().auth("LSGjeU4yP1X493ud1hNniA==", "")
+    return Executor.newInstance().auth("LSGjeU4yP1X493ud1hNniA==", "");
   }
 
   private int createIssue(Issue newIssue) {
